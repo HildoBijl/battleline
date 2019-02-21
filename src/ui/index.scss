@@ -1,0 +1,31 @@
+// Define various style parameters.
+$lineHeight: 10/7;
+
+// Define useful macros.
+@mixin notSelectable() {
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Set up general style elements.
+* {
+  box-sizing: border-box;
+}
+
+// Set up page style.
+html {
+  height: 100vh;
+}
+
+body {
+  background: #6d371b;
+  background: url("images/background.jpg") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  line-height: $lineHeight;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}

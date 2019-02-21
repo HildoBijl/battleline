@@ -1,6 +1,6 @@
-import '../../shared/reset.css'
-import '../../shared/general.css'
-import './style.css'
+import '../../reset.scss'
+import '../../index.scss'
+import './style.scss'
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
