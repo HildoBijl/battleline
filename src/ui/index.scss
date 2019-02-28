@@ -1,11 +1,4 @@
-// Define various style parameters.
-$lineHeight: 10/7;
-
-// Define useful macros.
-@mixin notSelectable() {
-	user-select: none;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+@import './params.scss';
 
 // Set up general style elements.
 * {

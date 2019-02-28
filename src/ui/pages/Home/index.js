@@ -1,15 +1,19 @@
-import './style.css'
+import './style.scss'
 
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-// import Link from 'redux-first-router-link'
 
-class Home extends Component {
-	render() {
-		return (
-			<div className="home">Home!</div>
-		)
-	}
+import Card from '../../components/Card'
+
+function Home() {
+	return (
+		<div className="home">
+			<Card number={1} suit={5} />
+			<Card number={3} suit={5} />
+			<Card />
+			<Card number={9} suit={5} />
+		</div>
+	)
 }
 
 const stateMap = (state) => ({})

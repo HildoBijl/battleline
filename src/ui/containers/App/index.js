@@ -13,13 +13,15 @@ import pages from '../../pages'
 // import Header from '../Header/Header.js'
 // import Page from '../Page/Page.js'
 
+import { SuitDefinitions } from '../../components/Suit'
+
 class App extends Component {
   render() {
 		console.log(this.props.page)
 		const p = pages[this.props.page]
 		console.log(p)
 
-		return <p.component />
+		return <><SuitDefinitions /><p.component /></>
 		// ToDo: reinstate.
     // return (
     //   <div className={classnames('app', this.props.theme)}>
@@ -34,6 +36,7 @@ const stateMap = (state) => ({
 	page: state.location.type,
 })
 const actionMap = (dispatch) => ({
+  // ToDo: sort this out.
   // processAuthStateChange: () => dispatch(userActions.processAuthStateChange()),
   // processRedirectSuccess: (result) => dispatch(userActions.processRedirectSuccess(result)),
   // processRedirectError: (error) => dispatch(userActions.processRedirectError(error)),

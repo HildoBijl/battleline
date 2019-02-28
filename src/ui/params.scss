@@ -1,0 +1,17 @@
+// Define site settings.
+
+// Lay-out.
+$lineHeight: 10/7;
+$themeColor: #006622;
+
+// Card visuals.
+$cardColors: #cc0000, #00cc00, #0000cc, #008888, #880088, #888800;
+$numbers: 9; // How many numbers are possible for the card?
+
+// Define macros.
+
+// Use this when you don't want elements to get a blue glow as if they're selected.
+@mixin notSelectable() {
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}

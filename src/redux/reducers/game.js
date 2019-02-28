@@ -4,6 +4,7 @@ import settings from '../../settings'
  * First, set up the actions changing things.
  */
 
+// ToDo: sort this out.
 const actions = {
   setOnlineStatus: (online) => ({
 		type: 'SetOnline',
