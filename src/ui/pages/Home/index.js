@@ -3,15 +3,12 @@ import './style.scss'
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Card from '../../components/Card'
+import Game from '../../containers/Game'
 
 function Home() {
 	return (
 		<div className="home">
-			<Card number={1} suit={5} />
-			<Card number={3} suit={5} />
-			<Card />
-			<Card number={9} suit={5} />
+			<Game />
 		</div>
 	)
 }

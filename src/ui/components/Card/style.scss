@@ -2,25 +2,41 @@
 
 .card {
 	background: white;
-	border: 0.5vw solid rgba($themeColor, 0.2);
+	border: 0.5vw solid rgba($themeColor, 0.3);
 	border-radius: 1vw;
-	height: 12vw;
-	position: relative;
-	width: 8vw;
+	height: $cardHeight;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: $cardWidth;
 
 	&.back {
 		background: $themeColor;
 		border: 0.5vw solid rgba(white, 0.1);
 	}
 
-	&.selectable:hover {	
-		border: 0.5vw solid rgba($themeColor, 0.4);
+	&.flag {
+		background: $themeColor;
+		border: 0.5vw solid rgba(white, 0.1);
+		
+		.flagIcon {
+			height: 4.5vw;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			width: 4.5vw;
+		}
+	}
+
+	&.selectable:hover {
+		background: $themeColor*0.08 + white*0.92;
+		border: 0.5vw solid rgba($themeColor, 0.5);
 		cursor: pointer;
 	}
 
-	@for $i from 1 through length($cardColors) {
+	@for $i from 0 through length($cardColors) - 1 {
     &.suit#{$i} {
-			color: nth($cardColors, $i);
+			color: nth($cardColors, $i + 1);
 		}
 	}
 
@@ -62,10 +78,21 @@
 		}
 	}
 
-	@for $i from 1 through $numbers {
+	@for $i from 0 through $numbers - 1 {
 		&.number#{$i} .suit.middle {
-			height: 0.5vw + 4vw*$i/$numbers;
-			width: 0.5vw + 4vw*$i/$numbers;
+			height: 1vw + 4vw*$i/($numbers - 1);
+			width: 1vw + 4vw*$i/($numbers - 1);
 		}
 	}
+}
+
+// Style the flag. This has to be outside of the .card class, because the SVG is in a shadow DOM and doesn't see the .card class.
+.flagBar1 {
+	fill: nth($cardColors, 3);
+}
+.flagBar2 {
+	fill: nth($cardColors, 5);
+}
+.flagBar3 {
+	fill: nth($cardColors, 1);
 }

@@ -1,12 +1,24 @@
 // Define site settings.
 
+// Game seetings.
+$numbers: 9; // How many numbers are possible for the card?
+$numFlags: 9; // How many flags are there in the game.
+$numCardsInHand: 6; // How many cards can the player have at most in the hand?
+
 // Lay-out.
 $lineHeight: 10/7;
 $themeColor: #006622;
 
 // Card visuals.
+$cardWidth: 8vw;
+$cardHeight: 12vw;
 $cardColors: #cc0000, #00cc00, #0000cc, #008888, #880088, #888800;
-$numbers: 9; // How many numbers are possible for the card?
+
+// Card positioning.
+$boardWidth: 86vw;
+$baseLine: 45vh;
+$cardSkip: 9vw; // The distance between the horizontal baseline and the first card that is laid down.
+$cardSeparation: 3.4vw; // The distance between the first card that is laid down, and the second card that is laid down.
 
 // Define macros.
 

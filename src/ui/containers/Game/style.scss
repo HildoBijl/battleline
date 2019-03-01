@@ -1,0 +1,73 @@
+@import '../../params.scss';
+
+.game {
+	height: 100%;
+	position: relative;
+	width: 100%;
+
+	// Flag positioning.
+	.flag {
+		&.flagClaim0 {
+			top: $baseLine;
+			z-index: 10;
+		}
+		&.flagClaim1 {
+			top: calc(#{$baseLine} - #{$cardSkip + 3*$cardSeparation});
+			z-index: 100;
+		}
+		&.flagClaim2 {
+			top: calc(#{$baseLine} + #{$cardSkip + 3*$cardSeparation});
+			z-index: 100;
+		}
+
+		@for $i from 0 through $numFlags - 1 {
+			&.flag#{$i} {
+				left: 50vw + ($i/($numFlags - 1) - 0.5)*$boardWidth;
+			}
+		}
+	}
+
+	// Playing card positioning.
+	.inStack {
+		left: 50vw - 0.5*$boardWidth;
+		top: 95vh;
+		z-index: 70;
+	}
+
+	.inHand {
+		top: 95vh;
+
+		@for $i from 0 through $numCardsInHand - 1 {
+			&.inHand#{$i} {
+				left: 50vw + ($i/($numCardsInHand - 1) - 0.5)*20vw;
+				transform: translate(-50%,-50% + ($i/($numCardsInHand - 1) - 0.5)*($i/($numCardsInHand - 1) - 0.5)*50%) rotate(($i/($numCardsInHand - 1) - 0.5)*30deg); // Make the cards appear rotated, like they would be if you'd hold them in an actual hand.
+				z-index: 200 - $i;
+
+				&.selected {
+					transform: translate(-50%,-80% + ($i/($numCardsInHand - 1) - 0.5)*($i/($numCardsInHand - 1) - 0.5)*50%) rotate(($i/($numCardsInHand - 1) - 0.5)*30deg); // Lift the card that is currently selected.
+				}
+			}
+		}
+	}
+
+	.onTable {
+		// Horizontal positioning.
+		@for $i from 0 through $numFlags - 1 {
+			&.onTableFlag#{$i} {
+				left: 50vw + ($i/($numFlags - 1) - 0.5)*$boardWidth;
+			}
+		}
+
+		// Vertical positioning.
+		@for $player from 0 through 1 {
+			&.onTablePlayer#{$player} {
+				@for $order from 0 through 2 {
+					&.onTableOrder#{$order} {
+						top: calc(#{$baseLine} - #{(2*$player - 1)*($cardSkip + $cardSeparation*$order)});
+						z-index: 20 + 10*$order;
+					}
+				}
+			}
+		}
+	}
+}

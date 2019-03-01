@@ -13,15 +13,13 @@ import pages from '../../pages'
 // import Header from '../Header/Header.js'
 // import Page from '../Page/Page.js'
 
-import { SuitDefinitions } from '../../components/Suit'
+import { SymbolDefinitions } from '../../components/Symbols'
 
 class App extends Component {
   render() {
-		console.log(this.props.page)
 		const p = pages[this.props.page]
-		console.log(p)
 
-		return <><SuitDefinitions /><p.component /></>
+		return <><p.component /><SymbolDefinitions /></>
 		// ToDo: reinstate.
     // return (
     //   <div className={classnames('app', this.props.theme)}>
